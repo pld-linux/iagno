@@ -1,28 +1,28 @@
 Summary:	GNOME Iagno - disk flipping game derived from Reversi
 Summary(pl.UTF-8):	Iagno dla GNOME - gra w obracanie krążków wywodząca się z Reversi
 Name:		iagno
-Version:	3.12.2
+Version:	3.14.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/iagno/3.12/%{name}-%{version}.tar.xz
-# Source0-md5:	2244998fa1e301b7f2221242c45036fa
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/iagno/3.14/%{name}-%{version}.tar.xz
+# Source0-md5:	e42a13bda9897f972d74d1a991586e22
 URL:		https://wiki.gnome.org/Apps/Iagno
 BuildRequires:	appdata-tools
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
-BuildRequires:	glib2-devel >= 1:2.36.0
-BuildRequires:	gtk+3-devel >= 3.10.0
+BuildRequires:	glib2-devel >= 1:2.40.0
+BuildRequires:	gtk+3-devel >= 3.12.0
 BuildRequires:	intltool >= 0.50.0
 BuildRequires:	libcanberra-gtk3-devel >= 0.26
 BuildRequires:	librsvg-devel >= 2.32.0
 BuildRequires:	pkgconfig
-BuildRequires:	vala >= 2:0.22.0
+BuildRequires:	vala >= 2:0.24.0
 BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.26.0
-Requires:	glib2 >= 1:2.36.0
-Requires:	gtk+3 >= 3.10.0
+Requires:	glib2 >= 1:2.40.0
+Requires:	gtk+3 >= 3.12.0
 Requires:	hicolor-icon-theme
 Requires:	libcanberra-gtk3 >= 0.26
 Requires:	librsvg >= 2.32.0
@@ -62,10 +62,12 @@ rm -rf $RPM_BUILD_ROOT
 
 %post
 %glib_compile_schemas
+%update_icon_cache HighContrast
 %update_icon_cache hicolor
 
 %postun
 %glib_compile_schemas
+%update_icon_cache HighContrast
 %update_icon_cache hicolor
 
 %files -f %{name}.lang
@@ -76,5 +78,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/glib-2.0/schemas/org.gnome.iagno.gschema.xml
 %{_datadir}/iagno
 %{_desktopdir}/iagno.desktop
+%{_iconsdir}/HighContrast/*/apps/iagno.png
 %{_iconsdir}/hicolor/*/apps/iagno.png
 %{_mandir}/man6/iagno.6*
