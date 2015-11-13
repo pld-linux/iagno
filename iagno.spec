@@ -1,12 +1,12 @@
 Summary:	GNOME Iagno - disk flipping game derived from Reversi
 Summary(pl.UTF-8):	Iagno dla GNOME - gra w obracanie krążków wywodząca się z Reversi
 Name:		iagno
-Version:	3.18.1
+Version:	3.18.2
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/iagno/3.18/%{name}-%{version}.tar.xz
-# Source0-md5:	5d665bcdc15b2b5135c44b029b34d416
+# Source0-md5:	88831e4827d5e88bfb9b89d2fa6ba217
 URL:		https://wiki.gnome.org/Apps/Iagno
 BuildRequires:	appstream-glib-devel
 BuildRequires:	autoconf >= 2.63
