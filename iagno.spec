@@ -1,19 +1,19 @@
 Summary:	GNOME Iagno - disk flipping game derived from Reversi
 Summary(pl.UTF-8):	Iagno dla GNOME - gra w obracanie krążków wywodząca się z Reversi
 Name:		iagno
-Version:	3.26.1
+Version:	3.28.0
 Release:	1
 License:	GPL v2+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/iagno/3.26/%{name}-%{version}.tar.xz
-# Source0-md5:	cbc93743a4d600cf366b56200d26d1ba
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/iagno/3.28/%{name}-%{version}.tar.xz
+# Source0-md5:	1ae25521766fe694b096cb9ab86bf37a
 URL:		https://wiki.gnome.org/Apps/Iagno
 BuildRequires:	appstream-glib-devel
 BuildRequires:	autoconf >= 2.63
 BuildRequires:	automake >= 1:1.11
+BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.40.0
 BuildRequires:	gtk+3-devel >= 3.15.0
-BuildRequires:	intltool >= 0.50.0
 BuildRequires:	libcanberra-gtk3-devel >= 0.26
 BuildRequires:	librsvg-devel >= 2.32.0
 BuildRequires:	pkgconfig
@@ -40,7 +40,6 @@ GNOME Iagno to gra podobna do Reversi.
 %setup -q
 
 %build
-%{__intltoolize}
 %{__aclocal}
 %{__autoconf}
 %{__automake}
@@ -72,7 +71,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc NEWS
 %attr(755,root,root) %{_bindir}/iagno
-%{_datadir}/appdata/iagno.appdata.xml
+%{_datadir}/metainfo/iagno.appdata.xml
 %{_datadir}/glib-2.0/schemas/org.gnome.iagno.gschema.xml
 %{_datadir}/iagno
 %{_desktopdir}/iagno.desktop
