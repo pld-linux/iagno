@@ -1,31 +1,35 @@
 Summary:	GNOME Iagno - disk flipping game derived from Reversi
 Summary(pl.UTF-8):	Iagno dla GNOME - gra w obracanie krążków wywodząca się z Reversi
 Name:		iagno
-Version:	3.28.0
+Version:	3.34.2
 Release:	1
-License:	GPL v2+
+License:	GPL v3+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/iagno/3.28/%{name}-%{version}.tar.xz
-# Source0-md5:	1ae25521766fe694b096cb9ab86bf37a
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/iagno/3.34/%{name}-%{version}.tar.xz
+# Source0-md5:	aeec1f9ad89170cfb6c6a78a4792148f
 URL:		https://wiki.gnome.org/Apps/Iagno
-BuildRequires:	appstream-glib-devel
-BuildRequires:	autoconf >= 2.63
-BuildRequires:	automake >= 1:1.11
+BuildRequires:	appstream-glib
 BuildRequires:	gettext-tools >= 0.19.8
 BuildRequires:	glib2-devel >= 1:2.40.0
-BuildRequires:	gtk+3-devel >= 3.15.0
-BuildRequires:	libcanberra-gtk3-devel >= 0.26
-BuildRequires:	librsvg-devel >= 2.32.0
+BuildRequires:	gsound-devel >= 1.0.2
+BuildRequires:	gtk+3-devel >= 3.24.0
+BuildRequires:	librsvg-devel >= 1:2.32.0
+BuildRequires:	meson
+BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
+BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala >= 2:0.27.1
+BuildRequires:	vala-gsound >= 1.0.2
+BuildRequires:	vala-librsvg >= 1:2.32.0
+BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
 Requires(post,postun):	glib2 >= 1:2.40.0
 Requires:	glib2 >= 1:2.40.0
-Requires:	gtk+3 >= 3.15.0
+Requires:	gsound >= 1.0.2
+Requires:	gtk+3 >= 3.24.0
 Requires:	hicolor-icon-theme
-Requires:	libcanberra-gtk3 >= 0.26
-Requires:	librsvg >= 2.32.0
+Requires:	librsvg >= 1:2.32.0
 Provides:	gnome-games-iagno = 1:%{version}-%{release}
 Obsoletes:	gnome-games-iagno < 1:3.8.0
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -40,19 +44,14 @@ GNOME Iagno to gra podobna do Reversi.
 %setup -q
 
 %build
-%{__aclocal}
-%{__autoconf}
-%{__automake}
-%configure \
-	--disable-silent-rules
+%meson build
 
-%{__make}
+%ninja_build -C build
 
 %install
 rm -rf $RPM_BUILD_ROOT
 
-%{__make} install \
-	DESTDIR=$RPM_BUILD_ROOT
+%ninja_install -C build
 
 %find_lang %{name} --with-gnome
 
@@ -71,10 +70,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(644,root,root,755)
 %doc NEWS
 %attr(755,root,root) %{_bindir}/iagno
-%{_datadir}/metainfo/iagno.appdata.xml
-%{_datadir}/glib-2.0/schemas/org.gnome.iagno.gschema.xml
+%{_datadir}/glib-2.0/schemas/org.gnome.Reversi.gschema.xml
 %{_datadir}/iagno
-%{_desktopdir}/iagno.desktop
-%{_iconsdir}/hicolor/*x*/apps/iagno.png
-%{_iconsdir}/hicolor/scalable/apps/iagno-symbolic.svg
+%{_datadir}/metainfo/org.gnome.Reversi.appdata.xml
+%{_desktopdir}/org.gnome.Reversi.desktop
+%{_iconsdir}/hicolor/*x*/apps/org.gnome.Reversi.png
+%{_iconsdir}/hicolor/symbolic/apps/org.gnome.Reversi-symbolic.svg
 %{_mandir}/man6/iagno.6*
