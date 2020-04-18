@@ -1,16 +1,16 @@
 Summary:	GNOME Iagno - disk flipping game derived from Reversi
 Summary(pl.UTF-8):	Iagno dla GNOME - gra w obracanie krążków wywodząca się z Reversi
 Name:		iagno
-Version:	3.34.4
+Version:	3.36.0
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/iagno/3.34/%{name}-%{version}.tar.xz
-# Source0-md5:	86b8e93b318366ac4673537def0edd0a
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/iagno/3.36/%{name}-%{version}.tar.xz
+# Source0-md5:	9b9bf6ab2823fb2b2eed37c7d173a14b
 URL:		https://wiki.gnome.org/Apps/Iagno
 BuildRequires:	appstream-glib
 BuildRequires:	gettext-tools >= 0.19.8
-BuildRequires:	glib2-devel >= 1:2.40.0
+BuildRequires:	glib2-devel >= 1:2.42.0
 BuildRequires:	gsound-devel >= 1.0.2
 BuildRequires:	gtk+3-devel >= 3.24.0
 BuildRequires:	librsvg-devel >= 1:2.32.0
@@ -25,8 +25,8 @@ BuildRequires:	vala-librsvg >= 1:2.32.0
 BuildRequires:	xz
 BuildRequires:	yelp-tools
 Requires(post,postun):	gtk-update-icon-cache
-Requires(post,postun):	glib2 >= 1:2.40.0
-Requires:	glib2 >= 1:2.40.0
+Requires(post,postun):	glib2 >= 1:2.42.0
+Requires:	glib2 >= 1:2.42.0
 Requires:	gsound >= 1.0.2
 Requires:	gtk+3 >= 3.24.0
 Requires:	hicolor-icon-theme
@@ -69,8 +69,9 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -f %{name}.lang
 %defattr(644,root,root,755)
-%doc NEWS
+%doc COPYING.images NEWS README.md
 %attr(755,root,root) %{_bindir}/iagno
+%{_datadir}/dbus-1/services/org.gnome.Reversi.service
 %{_datadir}/glib-2.0/schemas/org.gnome.Reversi.gschema.xml
 %{_datadir}/iagno
 %{_datadir}/metainfo/org.gnome.Reversi.appdata.xml
