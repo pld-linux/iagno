@@ -1,12 +1,12 @@
 Summary:	GNOME Iagno - disk flipping game derived from Reversi
 Summary(pl.UTF-8):	Iagno dla GNOME - gra w obracanie krążków wywodząca się z Reversi
 Name:		iagno
-Version:	3.36.4
+Version:	3.38.0
 Release:	1
 License:	GPL v3+
 Group:		X11/Applications/Games
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/iagno/3.36/%{name}-%{version}.tar.xz
-# Source0-md5:	99554696ba6a72c543caaed46a2aeb8f
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/iagno/3.38/%{name}-%{version}.tar.xz
+# Source0-md5:	18d99495ab0341b857f98740d81eecf3
 URL:		https://wiki.gnome.org/Apps/Iagno
 BuildRequires:	appstream-glib
 BuildRequires:	gettext-tools >= 0.19.8
@@ -17,6 +17,7 @@ BuildRequires:	librsvg-devel >= 1:2.32.0
 BuildRequires:	meson
 BuildRequires:	ninja >= 1.5
 BuildRequires:	pkgconfig
+BuildRequires:	python3 >= 1:3
 BuildRequires:	rpmbuild(macros) >= 1.736
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	vala >= 2:0.27.1
@@ -76,6 +77,6 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/iagno
 %{_datadir}/metainfo/org.gnome.Reversi.appdata.xml
 %{_desktopdir}/org.gnome.Reversi.desktop
-%{_iconsdir}/hicolor/*x*/apps/org.gnome.Reversi.png
+%{_iconsdir}/hicolor/scalable/apps/org.gnome.Reversi.svg
 %{_iconsdir}/hicolor/symbolic/apps/org.gnome.Reversi-symbolic.svg
 %{_mandir}/man6/iagno.6*
